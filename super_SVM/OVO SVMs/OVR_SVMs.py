@@ -19,7 +19,7 @@ def predict_value(ws, b, data):
 
 
 def loading_train_data():
-    result_mat = pd.read_csv('../../data_loader/gener/ellipse_data_easy_to_splict.txt',
+    result_mat = pd.read_csv('../../data_loader/gener/ellipse_data.txt',
                              names=['x', 'y', 'label'], sep=',')
     class_label = result_mat.pop('label')
     return np.array(result_mat.values), np.array(class_label.values)

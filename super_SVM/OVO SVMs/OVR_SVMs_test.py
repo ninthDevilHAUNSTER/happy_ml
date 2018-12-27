@@ -8,7 +8,7 @@ from sklearn.preprocessing import label_binarize
 
 
 def loading_train_data():
-    result_mat = pd.read_csv('../../data_loader/gener/ellipse_data_easy_to_splict.txt',
+    result_mat = pd.read_csv('../../data_loader/gener/ellipse_data.txt',
                              names=['x', 'y', 'label'], sep=',')
     class_label = result_mat.pop('label')
     return np.array(result_mat.values), np.array(class_label.values)
@@ -65,7 +65,9 @@ def mat_visible(mat, file_name):
     ax = fig.add_subplot(111)
     ax.set_title('Four Type Ellipse with OVR SVMs with Ac %.2f' % (file_name))
     cax = ax.matshow(mat, interpolation='nearest')
+    print('[*] Accurate {}'.format(file_name))
     fig.colorbar(cax)
+    plt.savefig('mat.png')
     plt.show()
 
 
