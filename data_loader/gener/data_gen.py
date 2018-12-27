@@ -42,17 +42,18 @@ def draw_and_renew_ellipse_data():
     # x, y = maximum_likelihood_e()
     # long_list.append([x, y, 'r', 'max_liklyhood'])
     for u in range(1, 5):
-        x, y = ellipse(4, 0, u * 0.1, 2.5)
+        x, y = ellipse(4, 0, u * 0.09, 4)
         long_list.append([x, y, [1.0] * x.__len__(), 'b', 'ellipse x+ l'])
-        x, y = ellipse(0, 4, 2.5, u * 0.1)
+        x, y = ellipse(0, 4, 4, u * 0.1)
         long_list.append([x, y, [2.0] * x.__len__(), 'r', 'ellipse y+ -'])
-        x, y = ellipse(-4, 0, u * 0.1, 2.5)
+        x, y = ellipse(-4, 0, u * 0.11, 4)
         long_list.append([x, y, [3.0] * x.__len__(), 'g', 'ellipse x- l'])
-        x, y = ellipse(0, -4, 2.5, u * 0.1)
+        x, y = ellipse(0, -4, 4, u * 0.1)
         long_list.append([x, y, [4.0] * x.__len__(), 'y', 'ellipse y- -'])
     # print(long_list[0][1])
     draw_plot(long_list)
     renew_data(long_list, file_name='ellipse_data')
+
 
 def draw_and_renew_ellipse_data2():
     long_list1 = []
@@ -82,8 +83,7 @@ def renew_data(long_list, file_name):
     if os.path.exists(file_name.split('.')[0] + '.txt'):
         os.remove(file_name.split('.')[0] + '.txt')
         print('remove old data')
-    # pwd = os.path.abspath(os.curdir)
-    # if os.path.exists()
+
     for single_data in long_list:
         # 字典中的key值即为csv中列名
         dataframe = pd.DataFrame({'x': single_data[0], 'y': single_data[1], 'label': single_data[2]})
@@ -92,4 +92,4 @@ def renew_data(long_list, file_name):
 
 
 if __name__ == '__main__':
-    draw_and_renew_ellipse_data2()
+    draw_and_renew_ellipse_data()
