@@ -63,7 +63,7 @@ def to_matrix(actual, predict):
 def mat_visible(mat, file_name):
     fig = plt.figure()
     ax = fig.add_subplot(111)
-    ax.set_title('Four Type Ellipse with OVR SVMs with Ac %.2f' % (file_name))
+    ax.set_title('Four Type Ellipse with OVO_SVMs with Ac %.2f' % (file_name))
     cax = ax.matshow(mat, interpolation='nearest')
     print('[*] Accurate {}'.format(file_name))
     fig.colorbar(cax)

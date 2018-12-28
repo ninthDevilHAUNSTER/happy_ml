@@ -25,7 +25,7 @@ def loading_train_data():
     return np.array(result_mat.values), np.array(class_label.values)
 
 
-def ovo_svm_main(result_mat=np.array([]), class_label=np.array([]),
+def ovr_svm_main(result_mat=np.array([]), class_label=np.array([]),
                  positive_label=1):
     b, alphas = smoP(result_mat, class_label, C=10000, toler=0.00001, maxIter=20000, kTup=('lin', 1.3))
     ws = calcWs(alphas, result_mat, class_label)
@@ -45,7 +45,7 @@ def main():
                 two_part_class_label[j] = 1
             else:
                 two_part_class_label[j] = -1
-        b, ws = ovo_svm_main(result_mat, two_part_class_label, positive_label=int(i))
+        b, ws = ovr_svm_main(result_mat, two_part_class_label, positive_label=int(i))
         super_variables.append([b, ws])
         print("[*] one part done")
 
